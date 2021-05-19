@@ -33,7 +33,7 @@ public class FinanceCommittee {
         
         try
         {
-            f = new File("fundCollection.txt");
+            f = new File("fcFundCollection.txt");
         
         if(f.exists())
         {

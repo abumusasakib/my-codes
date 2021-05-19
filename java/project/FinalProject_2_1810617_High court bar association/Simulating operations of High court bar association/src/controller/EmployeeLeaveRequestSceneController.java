@@ -57,7 +57,7 @@ public class EmployeeLeaveRequestSceneController implements Initializable {
         
         try
         {
-            f = new File("leaveRequests.txt");
+            f = new File("execComEmpLeaveRequests.txt");
         
         if(f.exists())
         {

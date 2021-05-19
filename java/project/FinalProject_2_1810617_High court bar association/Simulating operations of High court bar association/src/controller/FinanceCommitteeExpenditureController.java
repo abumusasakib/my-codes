@@ -92,7 +92,7 @@ public class FinanceCommitteeExpenditureController implements Initializable {
         //FileReader fw = null;
         Scanner sc=null; String str; String[] tokens;
         try {
-            f = new File("expenditure.txt");
+            f = new File("fcExpenditure.txt");
             sc = new Scanner(f);
             if(f.exists()){
           

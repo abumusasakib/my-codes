@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -87,7 +85,7 @@ public class EmployeeComplainScene_g4Controller implements Initializable {
         String str;
         String[] tokens;
         try {
-            f = new File("gmInfo.txt");
+            f = new File("empGmInfo.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

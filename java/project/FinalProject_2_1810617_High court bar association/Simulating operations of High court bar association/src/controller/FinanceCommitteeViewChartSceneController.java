@@ -5,9 +5,12 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +40,7 @@ public class FinanceCommitteeViewChartSceneController implements Initializable {
     @FXML
     private CategoryAxis xAxis;
     
-    private TableView<Record> tableView;
+    private ObservableList<Record> record;
 
     /**
      * Initializes the controller class.
@@ -48,13 +51,33 @@ public class FinanceCommitteeViewChartSceneController implements Initializable {
         // TODO
         XYChart.Series<String,Number> series = new XYChart.Series<String,Number>();
        
+         File f = null;
+        Scanner sc=null; String str; String[] tokens;
+        try {
+            f = new File("fcRecords.txt");
+            sc = new Scanner(f);
+            if(f.exists()){
+               
+                while(sc.hasNextLine()){
+                    str=sc.nextLine();
+                    tokens = str.split(",");
+                   series.getData().add(new XYChart.Data<String,Number>(tokens[0],Integer.parseInt(tokens[2])));
+                    
+                    
+                }
+            }
+           
+        } 
+        catch (Exception ex) {
+            
+        } 
+        finally {
+            sc.close();
+        }        
         
-        for(Record record : tableView.getItems())
-        {
-             series.getData().add(new XYChart.Data<String,Number>(record.getDate(),Integer.parseInt(record.getExpenses())));
-        }
         
-        System.out.println("Hello World!");
+        
+        
         
         series.setName("Date Wise Expenses");
         barChart.getData().add(series);
@@ -72,11 +95,6 @@ public class FinanceCommitteeViewChartSceneController implements Initializable {
         
         window.setScene(scene2);
         window.show();
-    }
-
-    void initData(TableView<Record> tableView) 
-    {
-        this.tableView = tableView;
     }
     
 }

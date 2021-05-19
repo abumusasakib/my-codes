@@ -65,7 +65,7 @@ public class ExecutiveCommitteeValidateLeaveRequestScene1_g3Controller implement
         String str;
         String[] tokens;
         try {
-            f = new File("leaveRequests.txt");
+            f = new File("execComEmpLeaveRequests.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

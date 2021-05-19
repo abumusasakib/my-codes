@@ -90,7 +90,7 @@ public class ExecutiveCommitteeSendComplaintSceneController implements Initializ
         String str;
         String[] tokens;
         try {
-            f = new File("complaints.txt");
+            f = new File("execComEmpGmSentComplaint.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

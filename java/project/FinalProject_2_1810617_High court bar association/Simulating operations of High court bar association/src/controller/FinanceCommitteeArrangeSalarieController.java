@@ -96,7 +96,7 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         ObservableList<Salary> salaryList = FXCollections.observableArrayList();
 
-        //salary.txt
+        //fcSalary.txt
         
         
        
@@ -104,7 +104,7 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
         //FileReader fw = null;
         Scanner sc; String str; String[] tokens;
         try {
-            f = new File("salary.txt");
+            f = new File("fcSalary.txt");
             sc = new Scanner(f);
             if(f.exists()){
               

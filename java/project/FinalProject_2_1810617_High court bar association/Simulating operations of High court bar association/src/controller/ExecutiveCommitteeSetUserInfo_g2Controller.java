@@ -64,7 +64,7 @@ public class ExecutiveCommitteeSetUserInfo_g2Controller implements Initializable
         
         try 
         {
-            f = new File("accountUserInfo.bin");
+            f = new File("accountCommitteeUserInfoExecComEmp.bin");
             if(f.exists())
             {
                 fos = new FileOutputStream(f,true);

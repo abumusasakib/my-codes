@@ -64,12 +64,12 @@ public class ExecutiveCommitteeViewLeaveRequestScene2_g3Controller implements In
     {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         String str = "";
-        str = str + name + "," + summary + "," + body + " (Rejected)";
+        str = str + name + "," + summary + "," + body + " (Rejected)"+"\n";
         
         File f = null;
         FileWriter fw = null;
         try {
-            f = new File("leaveRequestApprovalStatus.txt");
+            f = new File("execComEmpLeaveRequestApprovalStatus.txt");
             if(f.exists()){
                 fw = new FileWriter(f,true);
             }
@@ -77,11 +77,13 @@ public class ExecutiveCommitteeViewLeaveRequestScene2_g3Controller implements In
                 fw = new FileWriter(f);
             }
            
-            fw.write(str);
+            
             a.setTitle("Approval");
             a.setHeaderText("Rejected");
             a.setContentText("Approval has been rejected");
             a.showAndWait();
+            
+            fw.write(str);
   
         } catch (IOException ex) {
             System.out.println(ex);
@@ -114,13 +116,13 @@ public class ExecutiveCommitteeViewLeaveRequestScene2_g3Controller implements In
     {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         String str = "";
-        str +=  name + "," + summary + "," + body + " (Approved)";
+        str +=  name + "," + summary + "," + body + " (Approved)"+"\n";
         System.out.println(name);
         
         File f = null;
         FileWriter fw = null;
         try {
-            f = new File("leaveRequestApprovalStatus.txt");
+            f = new File("execComEmpLeaveRequestApprovalStatus.txt");
             if(f.exists()){
                 fw = new FileWriter(f,true);
             }
@@ -128,11 +130,13 @@ public class ExecutiveCommitteeViewLeaveRequestScene2_g3Controller implements In
                 fw = new FileWriter(f);
             }
            
-            fw.write(str);
+            
             a.setTitle("Approval");
             a.setHeaderText("Accepted");
             a.setContentText("Approval has been accepted");
             a.showAndWait();
+            
+            fw.write(str);
   
         } catch (IOException ex) {
             System.out.println(ex);

@@ -91,11 +91,10 @@ public class EmployeeReceiveSalaryScene1_g3Controller implements Initializable {
         DataInputStream dis = null; //DataStream Class
         
         String str="";
-        String tokens[];
         
         try
         {
-            f = new File("moneyInfo.bin");
+            f = new File("empMoneyInfo.bin");
 
             if(f.exists())
             {
@@ -103,12 +102,9 @@ public class EmployeeReceiveSalaryScene1_g3Controller implements Initializable {
                 dis = new DataInputStream(fis);
                 
                 while(true)
-                {
-                    str += dis.readUTF() + "," + Float.toString(dis.readFloat()) + "," + Float.toString(dis.readFloat()) + "," + dis.readUTF()+"\n";
+                {    
                     //month, amount, bonus, transactionMethod
-                    tokens = str.split(",");
-                    
-                    salaryPaymentList.add(new SalaryPayment(tokens[0], tokens[1], tokens[2], tokens[3]));
+                    salaryPaymentList.add(new SalaryPayment(dis.readUTF(), Float.toString(dis.readFloat()), Float.toString(dis.readFloat()), dis.readUTF()));
                 } 
             }
                

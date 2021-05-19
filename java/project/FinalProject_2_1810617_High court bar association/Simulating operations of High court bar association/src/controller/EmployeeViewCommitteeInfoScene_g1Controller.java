@@ -85,7 +85,7 @@ public class EmployeeViewCommitteeInfoScene_g1Controller implements Initializabl
         
         try
         {
-            f = new File("accountUserInfo.bin");
+            f = new File("accountCommitteeUserInfoExecComEmp.bin");
             
             if(!f.exists())
             {
@@ -102,17 +102,15 @@ public class EmployeeViewCommitteeInfoScene_g1Controller implements Initializabl
                 
                 while(true)
                 {
-                    //str+=dis.readUTF() +","+dis.readUTF()+","+dis.readUTF()+dis.readUTF()+",";
-                    //id, name, emailaddress, phoneNumber
-                    //tokens = str.split(",");
                     
+                    //id, name, emailaddress, phoneNumber
                     committeeInfoList.add(new CommitteeInfo(dis.readUTF(),dis.readUTF(), dis.readUTF(), dis.readUTF()));
                 }  
             }   
         }
         catch(IOException ex)
         {
-            System.out.println(ex);
+            
         }
         finally
         {

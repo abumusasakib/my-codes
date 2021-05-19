@@ -10,17 +10,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1006.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HumanRightsCommitteeSetVotingPieChartController">
    <children>
-      <Label layoutX="69.0" layoutY="77.0" prefHeight="72.0" prefWidth="682.0" text="Result of Voting :Represented in  Bar Chart " textFill="WHITE">
+      <Label layoutX="162.0" layoutY="102.0" prefHeight="72.0" prefWidth="682.0" text="Result of Voting: Represented in Bar Chart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="31.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" text="Back">
+      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="31.0" prefWidth="110.0" text="Back">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <BarChart fx:id="barChart" layoutX="61.0" layoutY="149.0" prefHeight="400.0" prefWidth="820.0">
+      <BarChart fx:id="barChart" layoutX="61.0" layoutY="195.0" prefHeight="400.0" prefWidth="820.0">
         <xAxis>
           <CategoryAxis fx:id="yAxis" side="BOTTOM" tickLabelFill="WHITE" />
         </xAxis>

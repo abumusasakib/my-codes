@@ -1,4 +1,4 @@
 Hasib,Paid
-Asik,Paids
-sakib,due
-robin,paid
+Asik,Paid
+Sakid,Due
+Rohid,Paid

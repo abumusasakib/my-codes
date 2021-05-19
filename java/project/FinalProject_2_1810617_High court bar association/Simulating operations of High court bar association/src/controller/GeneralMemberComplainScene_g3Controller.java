@@ -72,7 +72,7 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         
         try
         {
-            f = new File("gmComplaintsSent.txt");
+            f = new File("execComEmpGmSentComplaint.txt");
         
         if(f.exists())
         {
@@ -129,7 +129,7 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         String str;
         String[] tokens;
         try {
-            f = new File("complaints.txt");
+            f = new File("execComEmpGmComplaints.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

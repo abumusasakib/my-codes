@@ -22,7 +22,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="90.0" layoutY="337.0" mnemonicParsing="false" onAction="#updateRecordsAndViewChartOnClick" prefHeight="66.0" prefWidth="553.0" text="Update Records and View Chart">
+      <Button layoutX="90.0" layoutY="337.0" mnemonicParsing="false" onAction="#updateRecordsAndViewChartOnClick" prefHeight="66.0" prefWidth="553.0" text="View Records and Bar Chart">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

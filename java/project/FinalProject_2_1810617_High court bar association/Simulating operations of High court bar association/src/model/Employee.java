@@ -34,7 +34,7 @@ public class Employee {
         
         try
         {
-            f = new File("empComplaintsSent.txt");
+            f = new File("execComEmpGmSentComplaint.txt");
         
         if(f.exists())
         {
@@ -47,7 +47,7 @@ public class Employee {
         
         //file created
         
-        String str = memberTableView.getSelectionModel().getSelectedItem().toString() + "," + complainTextArea.getText() + "\n";
+        String str = memberTableView.getSelectionModel().getSelectedItem().getName() + "," + complainTextArea.getText() + "\n";
         fw.write(str); 
 
         a.setTitle("Complaint");
@@ -80,7 +80,7 @@ public class Employee {
         
         try 
         {
-            f = new File("moneyInfo.bin");
+            f = new File("empMoneyInfo.bin");
             if(f.exists())
             {
                 fos = new FileOutputStream(f,true);
@@ -162,7 +162,11 @@ public class Employee {
        
         fw.write(str);
         
-        
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Work");
+        a.setHeaderText("Done");
+        a.setContentText("Work status updated");
+        a.showAndWait();
         }
         catch(IOException e)
         {

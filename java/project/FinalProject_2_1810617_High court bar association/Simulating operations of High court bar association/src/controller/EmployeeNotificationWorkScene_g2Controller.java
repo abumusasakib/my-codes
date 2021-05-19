@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,7 +80,7 @@ public class EmployeeNotificationWorkScene_g2Controller implements Initializable
 
     @FXML
     private void markAsDoneOnAction(ActionEvent event) throws IOException {
-        //FileWriter fw = new  FileWriter("Emp.txt");
+        
         
         Employee.getNotifiedAboutWorks(ongoingWorksTableView);
     }

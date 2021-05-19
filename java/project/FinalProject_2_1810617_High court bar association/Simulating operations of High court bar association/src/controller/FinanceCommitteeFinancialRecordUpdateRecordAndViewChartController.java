@@ -46,7 +46,7 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
     @FXML
     private TableColumn<Record, String> expensesColumn;
  
-    
+    private ObservableList<Record> record;
     
     /**
      * Initializes the controller class.
@@ -61,7 +61,9 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
         expensesColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("expenses"));
 
         //load  data from text file
-        tableView.setItems(getRecord());
+        ObservableList<Record> record = getRecord();
+        tableView.setItems(record);
+        
     }    
 
  
@@ -70,20 +72,11 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
     @FXML
     private void viewChartsButtonOnAction(ActionEvent event) throws IOException 
     {
-           FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource("FinanceCommitteeViewChartScene.fxml"));
-        Parent personViewParent = loader.load();
-        
-        //Parent personViewParent = FXMLLoader.load(getClass().getResource("FXMLScene2.fxml"));
-        Scene personViewScene = new Scene(personViewParent);
-        
-        //access the controller
-        FinanceCommitteeViewChartSceneController controller = loader.getController();
-        controller.initData(tableView);
-        
+           Parent scene2Parent = FXMLLoader.load(getClass().getResource("FinanceCommitteeViewChartScene.fxml"));
+        Scene scene2 = new Scene(scene2Parent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
-        window.setScene(personViewScene);
+        window.setScene(scene2);
         window.show();
         
     }
@@ -91,7 +84,7 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
     @FXML
     private void backButtonOnAction(ActionEvent event) throws IOException {
         
-         Parent scene2Parent = FXMLLoader.load(getClass().getResource("financeCommitteeHomeScene.fxml"));
+         Parent scene2Parent = FXMLLoader.load(getClass().getResource("financeCommitteeFinancialRecord.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

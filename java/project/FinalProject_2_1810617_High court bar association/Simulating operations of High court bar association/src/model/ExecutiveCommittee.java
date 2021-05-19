@@ -27,15 +27,10 @@ public class ExecutiveCommittee {
         FileWriter fw = null;
         try 
         {
-            f = new File("MeetingInfo.txt");
-            if(f.exists())
-            {
-                fw = new FileWriter(f,true);
-            }
-            else 
-            {
-                fw = new FileWriter(f);
-            }
+            f = new File("execComMeetingInfo.txt");
+            
+            fw = new FileWriter(f);
+            
            
             fw.write(generatedString);
             
@@ -77,7 +72,7 @@ public class ExecutiveCommittee {
         
         try
         {
-            f = new File("MeetingInfo.txt");
+            f = new File("execComMeetingInfo.txt");
             
             sc = new Scanner(f);
             
@@ -133,7 +128,7 @@ public class ExecutiveCommittee {
         
         try
         {
-            f = new File("executiveCommiteeMemberSentComplaint.txt");
+            f = new File("execComEmpGmSentComplaint.txt");
         
         if(f.exists())
         {
