@@ -133,7 +133,7 @@ public class ExecutiveCommittee {
         
         try
         {
-            f = new File("empComplaintsSent.txt");
+            f = new File("executiveCommiteeMemberSentComplaint.txt");
         
         if(f.exists())
         {

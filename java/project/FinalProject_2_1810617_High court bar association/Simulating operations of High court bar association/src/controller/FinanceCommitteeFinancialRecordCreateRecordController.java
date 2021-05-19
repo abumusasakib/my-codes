@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -81,9 +82,24 @@ public class FinanceCommitteeFinancialRecordCreateRecordController implements In
 
     @FXML
     private void saveButtonOnAction(ActionEvent event) throws IOException {
+       
+  
+        
+        
+        
         date = dateTextField.getText();
         description = descriptionTextField.getText();
         expenses = expensesTextField.getText();
+        
+        
+              
+        Record record = new Record(date,
+                                       description,
+                                       expenses
+                                    );
+        recordTableView.getItems().add(record);
+        
+        
         
         File f =  null;
         
@@ -94,7 +110,7 @@ public class FinanceCommitteeFinancialRecordCreateRecordController implements In
         
         try
         {
-            f = new File("records.txt");
+            f = new File("fcRecords.txt");
         
         if(f.exists())
         {
@@ -127,11 +143,39 @@ public class FinanceCommitteeFinancialRecordCreateRecordController implements In
         
     }
 
-    private ObservableList<Record> getRecord() {
+    private ObservableList<Record> getRecord() 
+    {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         ObservableList<Record> recordList = FXCollections.observableArrayList();
 
-        recordList.add(new Record(date, description, expenses));
+         File f = null;
+        //FileReader fw = null;
+        Scanner sc; String str; String[] tokens;
+        try {
+            f = new File("fcRecords.txt"); 
+            sc = new Scanner(f);
+            if(f.exists()){
+                //outputTextArea.appendText("Content of Emp.txt:\n");
+                while(sc.hasNextLine()){
+                    str=sc.nextLine();
+                    tokens = str.split(",");
+                   
+                    recordList.add(new Record(tokens[0],tokens[1],tokens[2]));
+                    
+                    
+                }
+            }
+            //else 
+               // outputTextArea.setText("oops! Emp.txt does not exist...");
+        } 
+        catch (Exception ex) {
+            //Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        finally {
+        }        
+        
+        
+        
 
         return recordList;
         

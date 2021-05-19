@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -84,7 +85,35 @@ public class FinanceCommitteeExpenditureController implements Initializable {
     private ObservableList<Expenditure> getExpenditure() {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         ObservableList<Expenditure> expenditureList = FXCollections.observableArrayList();
-        expenditureList.add(new Expenditure(sector, expenditure, month, year));
+       
+        //expenditure
+        
+         File f = null;
+        //FileReader fw = null;
+        Scanner sc=null; String str; String[] tokens;
+        try {
+            f = new File("expenditure.txt");
+            sc = new Scanner(f);
+            if(f.exists()){
+          
+                while(sc.hasNextLine()){
+                    str=sc.nextLine();
+                    tokens = str.split(",");
+                   
+                    expenditureList.add(new Expenditure(tokens[0],tokens[1],tokens[2],tokens[3]));
+                    
+                }
+            }
+           
+        } 
+        catch (Exception ex) {
+            //Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        finally {
+        }        
+        
+        
+        
 
         return expenditureList;
     }
@@ -92,7 +121,7 @@ public class FinanceCommitteeExpenditureController implements Initializable {
     @FXML
     private void backButtonOnAction(ActionEvent event) throws IOException 
     {
-         Parent scene2Parent = FXMLLoader.load(getClass().getResource("executiveCommitteeHomeScene.fxml"));
+         Parent scene2Parent = FXMLLoader.load(getClass().getResource("financeCommitteeHomeScene.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
@@ -117,6 +146,10 @@ public class FinanceCommitteeExpenditureController implements Initializable {
         expenditure = expenditureTextField.getText();
         month = monthTextField.getText();
         year = yearTextField.getText();
+        
+        expenditureTableView.getItems().add(new Expenditure(sector,expenditure,month,year));
+        
+        
         
         File f =  null;
         

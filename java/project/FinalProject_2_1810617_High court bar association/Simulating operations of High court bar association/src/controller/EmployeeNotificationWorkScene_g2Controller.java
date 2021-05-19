@@ -71,7 +71,7 @@ public class EmployeeNotificationWorkScene_g2Controller implements Initializable
 
     @FXML
     private void backButtonOnAction(ActionEvent event) throws IOException {
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("executiveCommitteeHomeScene.fxml"));
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("employeeHomeScene.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

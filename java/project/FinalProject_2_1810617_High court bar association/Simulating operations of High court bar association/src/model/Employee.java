@@ -155,7 +155,9 @@ public class Employee {
         
         //file created
         
-        String str = ongoingWorksTableView.getSelectionModel().getSelectedItem().toString() + "," + "(Done)" + "\n";
+        OngoingWork o =   ongoingWorksTableView.getSelectionModel().getSelectedItem();
+        
+        String str =  o.toString()+ "," + "(Done)" + "\n";
         
        
         fw.write(str);

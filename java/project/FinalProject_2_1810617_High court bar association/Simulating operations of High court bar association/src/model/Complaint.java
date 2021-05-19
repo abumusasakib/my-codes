@@ -36,7 +36,9 @@ public class Complaint
 
     @Override
     public String toString() {
-        return "Complaint{" + "name=" + name + ", summary=" + summary + '}';
+     
+        return "Name : "+this.name+", Summary = "+this.summary;
+        
     }
     
     

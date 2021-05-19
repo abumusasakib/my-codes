@@ -102,10 +102,11 @@ public class EmployeeViewCommitteeInfoScene_g1Controller implements Initializabl
                 
                 while(true)
                 {
-                    str+=dis.readUTF() +","+dis.readUTF()+","+dis.readUTF()+dis.readUTF()+",";
+                    //str+=dis.readUTF() +","+dis.readUTF()+","+dis.readUTF()+dis.readUTF()+",";
                     //id, name, emailaddress, phoneNumber
-                    tokens = str.split(",");
-                    committeeInfoList.add(new CommitteeInfo(tokens[0], tokens[1], tokens[2], tokens[3]));
+                    //tokens = str.split(",");
+                    
+                    committeeInfoList.add(new CommitteeInfo(dis.readUTF(),dis.readUTF(), dis.readUTF(), dis.readUTF()));
                 }  
             }   
         }

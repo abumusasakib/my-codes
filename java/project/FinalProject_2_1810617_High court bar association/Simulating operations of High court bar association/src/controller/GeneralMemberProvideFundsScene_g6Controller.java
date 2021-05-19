@@ -68,7 +68,7 @@ public class GeneralMemberProvideFundsScene_g6Controller implements Initializabl
     @FXML
     private void backButtonOnClick(ActionEvent event) throws IOException 
     {
-        Parent scene2Parent = FXMLLoader.load(getClass().getResource("executiveCommitteeHomeScene.fxml"));
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("generalMemberHomeScene.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,7 +60,43 @@ public class FinanceCommitteePaymentsDueController implements Initializable {
         
         //load  data from text file
         paymentTableView.setItems(getDuePayment());
-    }    
+    }   
+    
+    private ObservableList<EmployeePayment> getDuePayment() {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        ObservableList<EmployeePayment> duePaymentList = FXCollections.observableArrayList();
+
+        //duePayment
+           File f = null;
+        //FileReader fw = null;
+        Scanner sc=null; String str; String[] tokens;
+        try {
+            f = new File("duePayment.txt");
+            sc = new Scanner(f);
+            if(f.exists()){
+              
+                while(sc.hasNextLine()){
+                    str=sc.nextLine();
+                    tokens = str.split(",");
+                     
+                    duePaymentList.add(new EmployeePayment(tokens[0],tokens[1]));
+                    
+                }
+            }
+          
+        } 
+        catch (Exception ex) {
+          //  Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        finally {
+        }
+        
+        
+        
+        
+        
+        return duePaymentList;
+    }
 
     @FXML
     private void backButtonOnAction(ActionEvent event) throws IOException {
@@ -84,6 +121,9 @@ public class FinanceCommitteePaymentsDueController implements Initializable {
         FileWriter  fw = null;
         
         //unchecked exception
+        
+        paymentTableView.getItems().add(new EmployeePayment(empName,paymentStatus));
+        
         
         
         try
@@ -120,14 +160,7 @@ public class FinanceCommitteePaymentsDueController implements Initializable {
         }
     }
 
-    private ObservableList<EmployeePayment> getDuePayment() {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        ObservableList<EmployeePayment> duePaymentList = FXCollections.observableArrayList();
-
-        duePaymentList.add(new EmployeePayment(empName, paymentStatus));
-
-        return duePaymentList;
-    }
+ 
 
     
 }

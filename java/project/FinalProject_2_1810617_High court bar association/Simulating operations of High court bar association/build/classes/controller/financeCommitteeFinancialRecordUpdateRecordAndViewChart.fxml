@@ -19,24 +19,14 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <TableView fx:id="tableViewColumn" layoutX="17.0" layoutY="101.0" prefHeight="394.0" prefWidth="715.0">
+      <TableView fx:id="tableView" layoutX="17.0" layoutY="101.0" prefHeight="394.0" prefWidth="715.0">
          <columns>
-            <TableColumn fx:id="dateTableColumn" prefWidth="136.0" text="Date" />
-            <TableColumn fx:id="descriptionTableColumn" prefWidth="391.20001220703125" text="Description" />
-            <TableColumn fx:id="expensesTableColumn" prefWidth="184.80010986328125" text="Expenses" />
+            <TableColumn fx:id="dateColumn" prefWidth="136.0" text="Date" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="391.20001220703125" text="Description" />
+            <TableColumn fx:id="expensesColumn" prefWidth="184.80010986328125" text="Expenses" />
          </columns>
       </TableView>
-      <Button layoutX="564.0" layoutY="519.0" mnemonicParsing="false" onAction="#saveButtonOnAction" prefHeight="40.0" prefWidth="158.0" text="Save">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="17.0" layoutY="519.0" mnemonicParsing="false" onAction="#uploadfileOnAction" prefHeight="39.0" prefWidth="191.0" text="Upload File">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="347.0" layoutY="519.0" mnemonicParsing="false" onAction="#viewChartsButtonOnAction" prefHeight="39.0" prefWidth="191.0" text="View Charts">
+      <Button layoutX="276.0" layoutY="531.0" mnemonicParsing="false" onAction="#viewChartsButtonOnAction" prefHeight="39.0" prefWidth="191.0" text="View Charts">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

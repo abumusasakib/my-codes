@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -84,7 +85,9 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
         salary = salaryTextField.getText();
         bonus = bonusTextField.getText();
         
-        FinanceCommittee.arrangeSalary(name, salary, bonus);
+        FinanceCommittee f  = new FinanceCommittee();
+        
+        f.addSalaryToTableAndDatabase(salaryTableView,name,salary,bonus);
      
         
     }
@@ -93,7 +96,35 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         ObservableList<Salary> salaryList = FXCollections.observableArrayList();
 
-        salaryList.add(new Salary(name, salary, bonus));
+        //salary.txt
+        
+        
+       
+        File f = null;
+        //FileReader fw = null;
+        Scanner sc; String str; String[] tokens;
+        try {
+            f = new File("salary.txt");
+            sc = new Scanner(f);
+            if(f.exists()){
+              
+                while(sc.hasNextLine()){
+                    str=sc.nextLine();
+                    tokens = str.split(",");
+                    
+                    salaryList.add(new Salary(tokens[0],tokens[1],tokens[2]));
+                 
+                }
+            }
+           
+        } 
+        catch (IOException ex) {
+            
+        } 
+        finally {
+        }        
+        
+        
 
         return salaryList;
     }

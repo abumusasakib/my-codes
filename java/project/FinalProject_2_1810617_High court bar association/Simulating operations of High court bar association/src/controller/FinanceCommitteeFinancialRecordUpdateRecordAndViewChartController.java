@@ -36,14 +36,18 @@ import model.Record;
  */
 public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController implements Initializable {
 
+   
     @FXML
-    private TableView<Record> recordTableView;
+    private TableView<Record> tableView;
     @FXML
-    private TableColumn<Record, String> dateTableView;
+    private TableColumn<Record, String> dateColumn;
     @FXML
-    private TableColumn<Record, String> descriptionTableView;
+    private TableColumn<Record, String> descriptionColumn;
     @FXML
-    private TableColumn<Record, String> expensesTableView;
+    private TableColumn<Record, String> expensesColumn;
+ 
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -52,68 +56,36 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
         //initialize table
 
         //set up the columns in the table
-        dateTableView.setCellValueFactory(new PropertyValueFactory<Record, String>("date"));
-        descriptionTableView.setCellValueFactory(new PropertyValueFactory<Record, String>("description"));
-        expensesTableView.setCellValueFactory(new PropertyValueFactory<Record, String>("expenses"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("date"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("description"));
+        expensesColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("expenses"));
 
         //load  data from text file
-        recordTableView.setItems(getRecord());
+        tableView.setItems(getRecord());
     }    
 
-    @FXML
-    private void saveButtonOnAction(ActionEvent event) throws IOException {
-        File f =  null;
-        
-        String str = "";
-        FileWriter  fw = null;
-        
-        //unchecked exception
-        
-        
-        try
-        {
-            f = new File("records.txt");
-        
-        if(f.exists())
-        {
-            fw = new FileWriter(f,true); //APPEND MODE
-        }
-        else
-        {
-            fw = new FileWriter(f); //file creating
-        }
-        
-        //file created
-        
-            ObservableList<Record> records = recordTableView.getSelectionModel().getSelectedItems();
-        
-            for(Record r:records)
-            {
-                str+=r.toString();
-            }
-       
-        fw.write(str);
-        
-       
-        
-        }
-        catch(IOException e)
-        {
-            System.out.println("Exception : "+e);
-            
-        }
-        finally
-        {
-            fw.close();
-        }
-    }
+ 
+  
 
     @FXML
-    private void uploadfileOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewChartsButtonOnAction(ActionEvent event) {
+    private void viewChartsButtonOnAction(ActionEvent event) throws IOException 
+    {
+           FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("FinanceCommitteeViewChartScene.fxml"));
+        Parent personViewParent = loader.load();
+        
+        //Parent personViewParent = FXMLLoader.load(getClass().getResource("FXMLScene2.fxml"));
+        Scene personViewScene = new Scene(personViewParent);
+        
+        //access the controller
+        FinanceCommitteeViewChartSceneController controller = loader.getController();
+        controller.initData(tableView);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(personViewScene);
+        window.show();
+        
     }
 
     @FXML
@@ -139,7 +111,7 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
         String str;
         String[] tokens;
         try {
-            f = new File("records.txt");
+            f = new File("fcRecords.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 
@@ -159,5 +131,6 @@ public class FinanceCommitteeFinancialRecordUpdateRecordAndViewChartController i
 
         return recordList;
     }
+
     
 }

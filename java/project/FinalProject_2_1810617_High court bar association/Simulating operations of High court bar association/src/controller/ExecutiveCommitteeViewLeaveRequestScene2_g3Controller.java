@@ -114,7 +114,8 @@ public class ExecutiveCommitteeViewLeaveRequestScene2_g3Controller implements In
     {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         String str = "";
-        str = str + name + "," + summary + "," + body + " (Approved)";
+        str +=  name + "," + summary + "," + body + " (Approved)";
+        System.out.println(name);
         
         File f = null;
         FileWriter fw = null;

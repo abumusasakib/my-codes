@@ -85,7 +85,10 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         
         //file created
         
-        String str = complaintsTableView.getSelectionModel().getSelectedItem().toString() + "," + complainTextBox.getText() + "\n";
+        
+         Complaint c =  complaintsTableView.getSelectionModel().getSelectedItem();
+        
+        String str = c.toString() + "," + complainTextBox.getText() + "\n";
         fw.write(str); 
 
         a.setTitle("Complaint");
@@ -109,7 +112,7 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
     @FXML
     private void backButtonOnClick(ActionEvent event) throws IOException 
     {
-         Parent scene2Parent = FXMLLoader.load(getClass().getResource("executiveCommitteeHomeScene.fxml"));
+         Parent scene2Parent = FXMLLoader.load(getClass().getResource("generalMemberHomeScene.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

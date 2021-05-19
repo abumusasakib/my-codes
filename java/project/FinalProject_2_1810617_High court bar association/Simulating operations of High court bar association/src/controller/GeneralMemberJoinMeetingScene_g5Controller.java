@@ -55,7 +55,7 @@ public class GeneralMemberJoinMeetingScene_g5Controller implements Initializable
     @FXML
     private void backButtonOnClick(ActionEvent event) throws IOException 
     {
-         Parent scene2Parent = FXMLLoader.load(getClass().getResource("homeScene.fxml"));
+         Parent scene2Parent = FXMLLoader.load(getClass().getResource("generalMemberHomeScene.fxml"));
          Scene scene2 = new Scene(scene2Parent);
          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

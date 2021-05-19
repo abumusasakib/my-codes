@@ -59,8 +59,8 @@ public class HumanRightsCommitteeSetEmergencyMeetingController implements Initia
         File f =  null;
         
         FileWriter  fw = null;
-        
-        String str = null;
+		
+		String str = null;
         
         //unchecked exception
         
@@ -90,7 +90,6 @@ public class HumanRightsCommitteeSetEmergencyMeetingController implements Initia
             str = meetingDateTextField.getText()+","+"Offline Meeting"+","+meetingTimeTextField.getText()+","
                        +meetingLocationTextField.getText()+","+meetingLinkTextField.getText()+","+"Human Rights and Legal Aid Committee"+"\n";
         }
-        
         
        
         fw.write(str);
