@@ -1,0 +1,6 @@
+alu,2144,21
+wdwf,1142,1
+wdwf,1142,12
+wdwf,1142,12
+sdgs,124,sdg
+24w,sfs,e22

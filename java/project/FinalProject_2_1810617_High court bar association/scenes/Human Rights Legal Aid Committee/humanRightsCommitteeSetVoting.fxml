@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="734.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="214.0" layoutY="72.0" prefHeight="72.0" prefWidth="242.0" text="Set Voting" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Button layoutX="41.0" layoutY="210.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="189.0" text="Responses :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" text="Back">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField layoutX="276.0" layoutY="210.0" prefHeight="38.0" prefWidth="226.0" />
+      <Button layoutX="347.0" layoutY="350.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="152.0" text="Send">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="347.0" layoutY="420.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="152.0" text="Show Results">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
