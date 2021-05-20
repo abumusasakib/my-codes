@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.HumanRightsAndLegalAidCommittee;
 
 /**
  * FXML Controller class
@@ -51,11 +52,10 @@ public class HumanRightsCommitteeComplaintProgressController implements Initiali
 
     @FXML
     private void seeProgressButtonOnAction(ActionEvent event) {
-         Alert a = new Alert(Alert.AlertType.INFORMATION);
-         a.setTitle("Complaint");
-         a.setHeaderText("Progress");
-         a.setContentText("Complaint "+ complaintidTextField.getText()+ " is going good");
-         a.showAndWait();
+        HumanRightsAndLegalAidCommittee h = new HumanRightsAndLegalAidCommittee();
+        String complaintID = complaintidTextField.getText();
+        h.seeProgress(complaintID);
+        
     }
     
 }

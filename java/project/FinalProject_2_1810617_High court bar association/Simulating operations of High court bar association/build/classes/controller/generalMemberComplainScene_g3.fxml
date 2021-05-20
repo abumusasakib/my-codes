@@ -17,8 +17,8 @@
       </Label>
       <TableView fx:id="complaintsTableView" layoutX="37.0" layoutY="133.0" prefHeight="127.0" prefWidth="652.0">
          <columns>
-            <TableColumn fx:id="nameTableColumn" prefWidth="172.80001068115234" text="Name" />
-            <TableColumn fx:id="summaryTableColumn" prefWidth="467.9999694824219" text="Summary" />
+            <TableColumn fx:id="idTableColumn" prefWidth="172.80001068115234" text="Member ID" />
+            <TableColumn fx:id="nameTableColumn" prefWidth="467.9999694824219" text="Member Name" />
          </columns>
       </TableView>
       <TextArea fx:id="complainTextBox" layoutX="37.0" layoutY="295.0" prefHeight="170.0" prefWidth="652.0" />

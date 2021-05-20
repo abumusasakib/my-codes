@@ -12,25 +12,34 @@ import java.io.IOException;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
  *
  * @author sakib
  */
-public class ExecutiveCommittee {
+public class ExecutiveCommittee extends User{
+    private String meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy, complaintPriority, complaintComments;
 
-    public static void setUpMeeting(String generatedString) {
+    public void setUpMeeting(String date,String type,String time,String location,String link,String setBy) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         File f = null;
         FileWriter fw = null;
+        
+        meetingDate = date;
+        meetingType = type;
+        meetingTime = time;
+        meetingLocation = location;
+        meetingLink = link;
+        meetingSetBy = setBy;
+        
         try 
         {
-            f = new File("execComMeetingInfo.txt");
+            f = new File("execComGmHrMeetingInfo.txt");
             
             fw = new FileWriter(f);
             
+            String generatedString = meetingDate+","+ meetingType+","+meetingTime+","+meetingLocation+","+meetingLink+","+meetingSetBy+"\n";
            
             fw.write(generatedString);
             
@@ -62,8 +71,8 @@ public class ExecutiveCommittee {
             }
         }
     }
-
-    public static void participateInMeeting(TextField meetingDateTextField, TextField meetingTypeTextField, TextField meetingTimeTextField, TextField meetingLocationTextField, TextField meetingLinkTextField) {
+    
+    public void participateInMeeting(TextField meetingDateTextField, TextField meetingTypeTextField, TextField meetingTimeTextField, TextField meetingLocationTextField, TextField meetingLinkTextField) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         File f = null;
         Scanner sc  = null;
@@ -72,7 +81,7 @@ public class ExecutiveCommittee {
         
         try
         {
-            f = new File("execComMeetingInfo.txt");
+            f = new File("execComGmHrMeetingInfo.txt");
             
             sc = new Scanner(f);
             
@@ -84,12 +93,18 @@ public class ExecutiveCommittee {
                   str = sc.nextLine();
                     
                   tokens  = str.split(",");
+                  meetingDate = tokens[0];
+                  meetingType = tokens[1];
+                  meetingTime = tokens[2];
+                  meetingLocation = tokens[3];
+                  meetingLink = tokens[4];
                   
-                  meetingDateTextField.setText(tokens[0]);
-                  meetingTypeTextField.setText(tokens[1]);
-                  meetingTimeTextField.setText(tokens[2]);
-                  meetingLocationTextField.setText(tokens[3]);
-                  meetingLinkTextField.setText(tokens[4]);
+                  
+                  meetingDateTextField.setText(meetingDate);
+                  meetingTypeTextField.setText(meetingType);
+                  meetingTimeTextField.setText(meetingTime);
+                  meetingLocationTextField.setText(meetingLocation);
+                  meetingLinkTextField.setText(meetingLink);
                 }
  
             }
@@ -116,9 +131,11 @@ public class ExecutiveCommittee {
         
         
     }
-    private String name, address, phoneNo, message; 
-    public static void accessAndSendFiledComplaints(TableView<Complaint> complaintsTableView, TextField complaintPriorityTextField, TextArea commentsTextArea) throws IOException {
-       Alert a = new Alert(Alert.AlertType.INFORMATION);
+     
+    public void accessAndSendFiledComplaints(TableView<Complaint> complaintsTableView, String priority, String comments) throws IOException {
+       complaintPriority = priority;
+       complaintComments = comments;
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
         
         File f =  null;
         
@@ -141,7 +158,7 @@ public class ExecutiveCommittee {
         
         //file created
         
-        String str = complaintsTableView.getSelectionModel().getSelectedItem().toString() + "," + complaintPriorityTextField.getText() + ","+ commentsTextArea.getText() + "\n";
+        String str = complaintsTableView.getSelectionModel().getSelectedItem().toString() + "," + complaintPriority + ","+ complaintComments + "\n";
         fw.write(str); 
 
         a.setTitle("Complaint");

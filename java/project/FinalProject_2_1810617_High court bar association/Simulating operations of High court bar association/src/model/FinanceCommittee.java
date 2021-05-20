@@ -8,23 +8,22 @@ package model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 
 /**
  *
  * @author sakib
  */
-public class FinanceCommittee {
+public class FinanceCommittee extends User{
     
-    private String name, address, phoneNo, message;
-    private float salary;
+    private String fcName, fundDetails, empName, empPaymentStatus;
+    private float fcSalary, fcBonus;
 
     
     
-    public static void collectFunds(TextArea fundDetailsTextArea) throws IOException {
-       File f =  null;
+    public void collectFunds(String details) throws IOException {
+       fundDetails = details;
+        File f =  null;
         
         FileWriter  fw = null;
         
@@ -46,7 +45,7 @@ public class FinanceCommittee {
         
         //file created
         
-        String str = fundDetailsTextArea.getText()+"\n";
+        String str = fundDetails+"\n";
         
        
         fw.write(str);
@@ -70,20 +69,23 @@ public class FinanceCommittee {
         
     }
 
-    public void addSalaryToTableAndDatabase(TableView<Salary> salaryTableView, String name, String salary, String bonus) 
+    public void arrangeSalary(TableView<Salary> salaryTableView, String name, float salary, float bonus) 
     {
-        Salary salary1 = new Salary(name,
-                                       salary,
-                                      bonus
-                                    );
-        salaryTableView.getItems().add(salary1);
+        fcName = name;
+        fcSalary = salary;
+        fcBonus = bonus;
+        Salary s = new Salary(fcName,
+                              fcSalary,
+                              fcBonus
+                              );
+        salaryTableView.getItems().add(s);
         
         
         
         File f = null;
         FileWriter fw = null;
         try {
-            f = new File("salary.txt");
+            f = new File("fcSalary.txt");
             //fw = new FileWriter(f);
             if(f.exists()) fw = new FileWriter(f,true);
             else fw = new FileWriter(f);
@@ -103,6 +105,54 @@ public class FinanceCommittee {
         }
         
         
+    }
+
+    public void paymentsDue(TableView<EmployeePayment> paymentTableView, String name, String status) throws IOException {
+        empName = name;
+        empPaymentStatus = status;
+        
+        File f =  null;
+        
+        FileWriter  fw = null;
+        
+        //unchecked exception
+        
+        paymentTableView.getItems().add(new EmployeePayment(empName,empPaymentStatus));
+        
+        
+        
+        try
+        {
+            f = new File("fcDuePayment.txt");
+        
+        if(f.exists())
+        {
+            fw = new FileWriter(f,true); //APPEND MODE
+        }
+        else
+        {
+            fw = new FileWriter(f); //file creating
+        }
+        
+        //file created
+        
+        String str = empName+","+empPaymentStatus+"\n";
+        
+       
+        fw.write(str);
+        
+       
+        
+        }
+        catch(IOException e)
+        {
+            System.out.println("Exception : "+e);
+            
+        }
+        finally
+        {
+            fw.close();
+        }
     }
     
     

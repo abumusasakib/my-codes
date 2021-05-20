@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 public abstract class User {
     protected String username, password, userType;
     
-    public static void register(String user, String password, String uType)
+    public void register(String user, String password, String uType)
     {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         
@@ -38,7 +38,7 @@ public abstract class User {
         
         try 
         {
-            f = new File("accountLoginInfo.bin");
+            f = new File("accountLoginInfoExecCom.bin");
             if(f.exists())
             {
                 fos = new FileOutputStream(f,true);
@@ -153,7 +153,7 @@ public abstract class User {
 
         try 
         {
-            f = new File("accountLoginInfo.bin");
+            f = new File("accountLoginInfoExecCom.bin");
             if (!f.exists())
             {
                 a.setTitle("Login Issue");

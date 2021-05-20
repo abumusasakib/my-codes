@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -66,7 +64,11 @@ public class ExecutiveCommitteeSendComplaintSceneController implements Initializ
     @FXML
     private void sendButtonOnAction(ActionEvent event) throws IOException 
     {
-        ExecutiveCommittee.accessAndSendFiledComplaints(complaintsTableView, complaintPriorityTextField, commentsTextArea);
+        String complaintPriority, complaintComments;
+        complaintPriority = complaintPriorityTextField.getText();
+        complaintComments = commentsTextArea.getText();
+        ExecutiveCommittee e = new ExecutiveCommittee();
+        e.accessAndSendFiledComplaints(complaintsTableView, complaintPriority, complaintComments);
         
     }
 
@@ -90,7 +92,7 @@ public class ExecutiveCommitteeSendComplaintSceneController implements Initializ
         String str;
         String[] tokens;
         try {
-            f = new File("execComEmpGmSentComplaint.txt");
+            f = new File("execComEmpGmComplaints.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.EmployeePayment;
+import model.FinanceCommittee;
 
 /**
  * FXML Controller class
@@ -71,7 +72,7 @@ public class FinanceCommitteePaymentsDueController implements Initializable {
         //FileReader fw = null;
         Scanner sc=null; String str; String[] tokens;
         try {
-            f = new File("duePayment.txt");
+            f = new File("fcDuePayment.txt");
             sc = new Scanner(f);
             if(f.exists()){
               
@@ -115,52 +116,12 @@ public class FinanceCommitteePaymentsDueController implements Initializable {
     private void saveButtonOnAction(ActionEvent event) throws IOException {
         empName = employeeNameTextField.getText();
         paymentStatus = paymentStatusTextField.getText();
-                
-        File f =  null;
         
-        FileWriter  fw = null;
+        FinanceCommittee f = new FinanceCommittee();
+        f.paymentsDue(paymentTableView, empName, paymentStatus);
         
-        //unchecked exception
-        
-        paymentTableView.getItems().add(new EmployeePayment(empName,paymentStatus));
-        
-        
-        
-        try
-        {
-            f = new File("duePayment.txt");
-        
-        if(f.exists())
-        {
-            fw = new FileWriter(f,true); //APPEND MODE
-        }
-        else
-        {
-            fw = new FileWriter(f); //file creating
-        }
-        
-        //file created
-        
-        String str = empName+","+paymentStatus+"\n";
-        
-       
-        fw.write(str);
-        
-       
-        
-        }
-        catch(IOException e)
-        {
-            System.out.println("Exception : "+e);
-            
-        }
-        finally
-        {
-            fw.close();
-        }
     }
 
  
-
     
 }

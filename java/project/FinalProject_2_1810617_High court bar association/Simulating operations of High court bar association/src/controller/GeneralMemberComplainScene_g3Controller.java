@@ -27,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Complaint;
+import model.Member;
 
 /**
  * FXML Controller class
@@ -36,11 +37,11 @@ import model.Complaint;
 public class GeneralMemberComplainScene_g3Controller implements Initializable {
 
     @FXML
-    private TableView<Complaint> complaintsTableView;
+    private TableView<Member> complaintsTableView;
     @FXML
-    private TableColumn<Complaint, String> nameTableColumn;
+    private TableColumn<Member, String> idTableColumn;
     @FXML
-    private TableColumn<Complaint, String> summaryTableColumn;
+    private TableColumn<Member, String> nameTableColumn;
     @FXML
     private TextArea complainTextBox;
 
@@ -52,8 +53,8 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         //initialize table
 
         //set up the columns in the table
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<Complaint, String>("name"));
-        summaryTableColumn.setCellValueFactory(new PropertyValueFactory<Complaint, String>("summary"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("id"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("name"));
 
         //load  data from text file
         complaintsTableView.setItems(getComplaints());
@@ -68,11 +69,12 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         
         FileWriter  fw = null;
         
+        
         //unchecked exception
         
         try
         {
-            f = new File("execComEmpGmSentComplaint.txt");
+            f = new File("execComEmpGmComplaints.txt");
         
         if(f.exists())
         {
@@ -86,14 +88,15 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         //file created
         
         
-         Complaint c =  complaintsTableView.getSelectionModel().getSelectedItem();
+         Member m =  complaintsTableView.getSelectionModel().getSelectedItem();
         
-        String str = c.toString() + "," + complainTextBox.getText() + "\n";
+       
+        String str = m.getName() + "," + complainTextBox.getText()+ "\n";
         fw.write(str); 
 
         a.setTitle("Complaint");
         a.setHeaderText("Send successfull");
-        a.setContentText("Complaint has been sent successfully");
+        a.setContentText("Complaint has been filed successfully");
         a.showAndWait();
        
         
@@ -120,8 +123,8 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
          window.show();
     }
     
-    private ObservableList<Complaint> getComplaints() {
-        ObservableList<Complaint> complaintList = FXCollections.observableArrayList();
+    private ObservableList<Member> getComplaints() {
+        ObservableList<Member> memberList = FXCollections.observableArrayList();
 
         File f = null;
 
@@ -129,7 +132,7 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
         String str;
         String[] tokens;
         try {
-            f = new File("execComEmpGmComplaints.txt");
+            f = new File("empGmInfo.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 
@@ -137,7 +140,7 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
                     str = sc.nextLine();
                     tokens = str.split(",");
 
-                    complaintList.add(new Complaint(tokens[0], tokens[1]));
+                    memberList.add(new Member(tokens[0], tokens[1]));
                 }
             }
         } catch (IOException ex) {
@@ -147,6 +150,6 @@ public class GeneralMemberComplainScene_g3Controller implements Initializable {
 
         }
 
-        return complaintList;
+        return memberList;
     }
 }

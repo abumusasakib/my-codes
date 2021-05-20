@@ -54,13 +54,12 @@ public class HumanRightsCommitteeFileACaseController implements Initializable {
 
     @FXML
     private void sendCaseButtonOnAction(ActionEvent event) throws IOException {
+        
+        
+        
         File f =  null;
         
         FileWriter  fw = null;
-        
-        
-        
-        
         try
         {
             f = new File("humanRightsCases.txt");
@@ -83,7 +82,7 @@ public class HumanRightsCommitteeFileACaseController implements Initializable {
         
         
         }
-        catch(Exception e)
+        catch(IOException e)
         {
             System.out.println("Exception : "+e);
             
@@ -92,9 +91,6 @@ public class HumanRightsCommitteeFileACaseController implements Initializable {
         {
             fw.close();
         }
-        
-        
-        
         
         
         

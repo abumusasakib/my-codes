@@ -11,9 +11,10 @@ package model;
  */
 public class Salary 
 {
-    private String name, salary, bonusAmount;
+    private String name; 
+    private float salary, bonusAmount;
 
-    public Salary(String name, String salary, String bonusAmount) {
+    public Salary(String name, float salary, float bonusAmount) {
         this.name = name;
         this.salary = salary;
         this.bonusAmount = bonusAmount;
@@ -27,19 +28,19 @@ public class Salary
         this.name = name;
     }
 
-    public String getSalary() {
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    public String getBonusAmount() {
+    public float getBonusAmount() {
         return bonusAmount;
     }
 
-    public void setBonusAmount(String bonusAmount) {
+    public void setBonusAmount(float bonusAmount) {
         this.bonusAmount = bonusAmount;
     }
 

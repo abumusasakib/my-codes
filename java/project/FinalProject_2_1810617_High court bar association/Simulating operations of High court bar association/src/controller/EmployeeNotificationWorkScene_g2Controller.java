@@ -82,7 +82,8 @@ public class EmployeeNotificationWorkScene_g2Controller implements Initializable
     private void markAsDoneOnAction(ActionEvent event) throws IOException {
         
         
-        Employee.getNotifiedAboutWorks(ongoingWorksTableView);
+        Employee e = new Employee();
+        e.getNotifiedAboutWorks(ongoingWorksTableView);
     }
 
     private ObservableList<UpcomingWork> getUpcomingWorks() {

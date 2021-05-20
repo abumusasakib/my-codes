@@ -5,8 +5,6 @@
  */
 package controller;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,7 +52,9 @@ public class FinanceCommitteeFundCollectionController implements Initializable {
 
     @FXML
     private void sendButtonOnAction(ActionEvent event) throws IOException {
-        FinanceCommittee.collectFunds(fundDetailsTextArea);
+        FinanceCommittee f = new FinanceCommittee();
+        String fundDetails = fundDetailsTextArea.getText();
+        f.collectFunds(fundDetails);
         
     }
     

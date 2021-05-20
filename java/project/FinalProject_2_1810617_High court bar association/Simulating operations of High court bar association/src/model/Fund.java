@@ -44,7 +44,7 @@ public class Fund {
 
     @Override
     public String toString() {
-        return "Fund{" + "date=" + date + ", name=" + name + ", subject=" + subject + '}';
+        return date + "," + name + "," + subject;
     }
     
 }

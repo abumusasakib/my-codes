@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -62,7 +60,8 @@ public class GeneralMemberProvideFundsScene_g6Controller implements Initializabl
 
     @FXML
     private void sendMoneyOnClick(ActionEvent event) throws IOException {
-        GeneralMember.provideFunds(fundsTableView);
+        GeneralMember g = new GeneralMember();
+        g.provideFunds(fundsTableView);
     }
 
     @FXML

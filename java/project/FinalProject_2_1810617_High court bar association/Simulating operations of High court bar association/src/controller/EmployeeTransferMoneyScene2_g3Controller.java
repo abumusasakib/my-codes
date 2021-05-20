@@ -61,7 +61,8 @@ public class EmployeeTransferMoneyScene2_g3Controller implements Initializable {
         String transactionMethod = transactionMethodComboBox.getValue().toString();
         float bonus = Float.parseFloat(bonusTextField.getText());
        
-        Employee.receiveSalary(amount, month, transactionMethod, bonus);
+        Employee e = new Employee();
+        e.receiveSalary(amount, month, transactionMethod, bonus);
         
         
     }

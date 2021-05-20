@@ -48,7 +48,9 @@ public class GeneralMemberFollowUpComplaintScene_g4Controller implements Initial
     }
     @FXML
     private void checkStatusButtonOnAction(ActionEvent event) {
-        GeneralMember.getFollowUp(tokenTextBox);
+        GeneralMember g = new GeneralMember();
+        String token = tokenTextBox.getText();
+        g.getFollowUp(token);
         
     }
     

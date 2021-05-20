@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -64,8 +62,9 @@ public class GeneralMemberMessageScene_g1Controller implements Initializable {
     @FXML
     private void sendButtonOnAction(ActionEvent event) throws IOException {
         
-        String str="";
-        GeneralMember.sendMessage(str, memberTableView, messageTextArea);
+        GeneralMember g = new GeneralMember();
+        String message = messageTextArea.getText();
+        g.sendMessage(memberTableView, message);
         
     }
 
@@ -88,7 +87,7 @@ public class GeneralMemberMessageScene_g1Controller implements Initializable {
         String str;
         String[] tokens;
         try {
-            f = new File("employee.txt");
+            f = new File("empGmInfo.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

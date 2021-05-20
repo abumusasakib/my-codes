@@ -5,8 +5,6 @@
  */
 package controller;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -67,9 +64,17 @@ public class ExecutiveCommitteeSetMeetingSceneController implements Initializabl
     private void saveButtonOnAction(ActionEvent event) 
     {
         
-        String generatedString = meetingDateDatePicker.getValue().toString()+","+ meetingTypeComboBox.getValue().toString()+","+meetingTimeTextField.getText()+","+meetingLocationTextField.getText()+","+meetingLinkTextField.getText()+","+"Executive Committee"+"\n";
         
-        ExecutiveCommittee.setUpMeeting(generatedString);
+        String meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy;
+        meetingDate = meetingDateDatePicker.getValue().toString();
+        meetingType = meetingTypeComboBox.getValue().toString();
+        meetingTime = meetingTimeTextField.getText();
+        meetingLocation = meetingLocationTextField.getText();
+        meetingLink = meetingLinkTextField.getText();
+        meetingSetBy = "Executive Committee";
+        
+        ExecutiveCommittee e = new ExecutiveCommittee();
+        e.setUpMeeting(meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy);
         
     }
     

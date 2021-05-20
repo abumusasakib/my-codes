@@ -21,6 +21,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import model.HumanRightsAndLegalAidCommittee;
 
 /**
  * FXML Controller class
@@ -56,55 +57,25 @@ public class HumanRightsCommitteeSetEmergencyMeetingController implements Initia
 
     @FXML
     private void saveButtonOnAction(ActionEvent event) throws IOException {
-        File f =  null;
+        String meetingDate, meetingType = null, meetingTime, meetingLocation, meetingLink, meetingSetBy;
+        meetingDate = meetingDateTextField.getText();
+        meetingTime = meetingTimeTextField.getText();
+        meetingLocation = meetingLocationTextField.getText();
+        meetingLink = meetingLinkTextField.getText();
+        meetingSetBy = "Human Rights and Legal Aid Committee";
         
-        FileWriter  fw = null;
-		
-		String str = null;
-        
-        //unchecked exception
-        
-        
-        try
-        {
-            f = new File("MeetingInfo.txt");
-        
-        if(f.exists())
-        {
-            fw = new FileWriter(f,true); //APPEND MODE
-        }
-        else
-        {
-            fw = new FileWriter(f); //file creating
-        }
-        
-        //file created
-        
+        HumanRightsAndLegalAidCommittee h = new HumanRightsAndLegalAidCommittee();
         if(onlineMeetingRadioButton.isSelected())
         {
-            str = meetingDateTextField.getText()+","+"Online Meeting"+","+meetingTimeTextField.getText()+","
-                       +meetingLocationTextField.getText()+","+meetingLinkTextField.getText()+","+"Human Rights and Legal Aid Committee"+"\n";
+            meetingType = "Online Meeting";
+            h.setEmergencyMeeting(meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy);
         }
         else
         {
-            str = meetingDateTextField.getText()+","+"Offline Meeting"+","+meetingTimeTextField.getText()+","
-                       +meetingLocationTextField.getText()+","+meetingLinkTextField.getText()+","+"Human Rights and Legal Aid Committee"+"\n";
+            meetingType = "Offline Meeting";
+            h.setEmergencyMeeting(meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy);
         }
         
-       
-        fw.write(str);
-        
-        
-        }
-        catch(IOException e)
-        {
-            System.out.println("Exception : "+e);
-            
-        }
-        finally
-        {
-            fw.close();
-        }
     }
 
     @FXML

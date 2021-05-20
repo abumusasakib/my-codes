@@ -5,11 +5,9 @@
  */
 package controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +45,8 @@ public class GeneralMemberJoinMeetingScene_g5Controller implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        GeneralMember.participateMeeting(meetingDateTextField, meetingTypeTextField, meetingTimeTextField, meetingLocationTextField, meetingLinkTextField, setByTextField);
+        GeneralMember g = new GeneralMember();
+        g.participateMeeting(meetingDateTextField, meetingTypeTextField, meetingTimeTextField, meetingLocationTextField, meetingLinkTextField, setByTextField);
         
         
     }    

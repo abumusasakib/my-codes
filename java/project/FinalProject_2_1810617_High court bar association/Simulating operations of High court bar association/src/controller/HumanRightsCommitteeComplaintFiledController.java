@@ -77,7 +77,7 @@ public class HumanRightsCommitteeComplaintFiledController implements Initializab
         String str;
         String[] tokens;
         try {
-            f = new File("empComplaintsSent.txt");
+            f = new File("execComEmpGmComplaints.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 

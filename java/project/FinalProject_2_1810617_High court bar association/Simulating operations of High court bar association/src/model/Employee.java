@@ -19,22 +19,23 @@ import javafx.scene.control.TextArea;
  *
  * @author sakib
  */
-public class Employee {
-    private String name, address, phoneNo, message;
-        private float fund;
+public class Employee extends User {
+    private String complaint, salaryMonth, salaryTransactionMethod;
+    private float salaryAmount, salaryBonus;
         
-    public static void fileComplaint(TableView<Member> memberTableView, TextArea complainTextArea) throws IOException {
+    public void fileComplaint(TableView<Member> memberTableView, TextArea complainTextArea) throws IOException {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         
         File f =  null;
         
         FileWriter  fw = null;
         
+        
         //unchecked exception
         
         try
         {
-            f = new File("execComEmpGmSentComplaint.txt");
+            f = new File("execComEmpGmComplaints.txt");
         
         if(f.exists())
         {
@@ -45,14 +46,15 @@ public class Employee {
             fw = new FileWriter(f); //file creating
         }
         
-        //file created
+        complaint = complainTextArea.getText();
         
-        String str = memberTableView.getSelectionModel().getSelectedItem().getName() + "," + complainTextArea.getText() + "\n";
+        //file created
+        String str = memberTableView.getSelectionModel().getSelectedItem().getName() + "," + complaint + "\n";
         fw.write(str); 
 
         a.setTitle("Complaint");
         a.setHeaderText("Send successfull");
-        a.setContentText("Complaint has been sent successfully");
+        a.setContentText("Complaint has been filed successfully");
         a.showAndWait();
        
         
@@ -70,7 +72,12 @@ public class Employee {
     }
     
     
-    public static void receiveSalary(float amount, String month, String transactionMethod, float bonus) {
+    public void receiveSalary(float amount, String month, String transactionMethod, float bonus) {
+       
+        salaryAmount = amount;
+        salaryMonth = month;
+        salaryTransactionMethod = transactionMethod;
+        salaryBonus = bonus;
         
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         File f = null;
@@ -94,10 +101,10 @@ public class Employee {
             dos = new DataOutputStream(fos);
             
            
-            dos.writeUTF(month);
-            dos.writeFloat(amount);
-            dos.writeFloat(bonus);
-            dos.writeUTF(transactionMethod);
+            dos.writeUTF(salaryMonth);
+            dos.writeFloat(salaryAmount);
+            dos.writeFloat(salaryBonus);
+            dos.writeUTF(salaryTransactionMethod);
             
             
             
@@ -132,7 +139,7 @@ public class Employee {
 
     
     
-    public static void getNotifiedAboutWorks(TableView<OngoingWork> ongoingWorksTableView) throws IOException {
+    public void getNotifiedAboutWorks(TableView<OngoingWork> ongoingWorksTableView) throws IOException {
         File f =  null;
         
         FileWriter  fw = null;

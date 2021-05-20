@@ -14,7 +14,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -23,44 +22,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author sakib
  */
 public class GeneralMember extends User{
-    private String name, address, phoneNo, message;
-    private float fund;
+    private String complaintToken, gmMessage, meetingDate, meetingType, meetingTime, meetingLocation, meetingLink, meetingSetBy;
 
-    public static void getFollowUp(TextField tokenTextBox) {
-        File f = null;
-
-        Scanner sc = null;
-        String str;
-        String[] tokens;
-        try {
-            f = new File("employee.txt");
-            sc = new Scanner(f);
-            if (f.exists()) {
-
-                while (sc.hasNextLine()) {
-                    str = sc.nextLine();
-                    tokens = str.split(",");
-
-                   if(tokens[2] == tokenTextBox.getText())
-                   {
-                        Alert a = new Alert(Alert.AlertType.INFORMATION);
-                        
-                        a.setTitle("Status");
-                        a.setHeaderText("Complain found");
-                        a.setContentText("Complain has been found successfully");
-                        a.showAndWait();
-                   }
-                }
-            }
-        } catch (IOException ex) {
-            System.out.println(ex);
-        } finally {
-            sc.close();
-
-        }
+    public void getFollowUp(String token) {
+        
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        
+        complaintToken = token;
+        a.setTitle("Status");
+        a.setHeaderText("Complain");
+        a.setContentText("Complain " + complaintToken +  " is going on");
+        a.showAndWait();
+  
     }
 
-    public static void participateMeeting(TextField meetingDateTextField, TextField meetingTypeTextField, TextField meetingTimeTextField, TextField meetingLocationTextField, TextField meetingLinkTextField, TextField setByTextField) {
+    public void participateMeeting(TextField meetingDateTextField, TextField meetingTypeTextField, TextField meetingTimeTextField, TextField meetingLocationTextField, TextField meetingLinkTextField, TextField setByTextField) {
         File f = null;
         Scanner sc  = null;
         
@@ -68,7 +44,7 @@ public class GeneralMember extends User{
         
         try
         {
-            f = new File("MeetingInfo.txt");
+            f = new File("execComGmHrMeetingInfo.txt");
             
             sc = new Scanner(f);
             
@@ -86,13 +62,19 @@ public class GeneralMember extends User{
                     
                     
                 }
+                meetingDate = tokens[0];
+                meetingType = tokens[1];
+                meetingTime = tokens[2];
+                meetingLocation = tokens[3];
+                meetingLink = tokens[4];
+                meetingSetBy = tokens[5];
                 
-                 meetingDateTextField.setText(tokens[0]);
-                 meetingTypeTextField.setText(tokens[1]);
-                 meetingTimeTextField.setText(tokens[2]);
-                 meetingLocationTextField.setText(tokens[3]);
-                 meetingLinkTextField.setText(tokens[4]);
-                 setByTextField.setText(tokens[5]);
+                 meetingDateTextField.setText(meetingDate);
+                 meetingTypeTextField.setText(meetingType);
+                 meetingTimeTextField.setText(meetingTime);
+                 meetingLocationTextField.setText(meetingLocation);
+                 meetingLinkTextField.setText(meetingLink);
+                 setByTextField.setText(meetingSetBy);
                  
                 
                 
@@ -117,7 +99,7 @@ public class GeneralMember extends User{
         
     }
 
-    public static void provideFunds(TableView<Fund> fundsTableView) throws IOException {
+    public void provideFunds(TableView<Fund> fundsTableView) throws IOException {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         
         File f =  null;
@@ -167,7 +149,7 @@ public class GeneralMember extends User{
 
     
     
-  private static ObservableList<Member> getMember() {
+  private ObservableList<Member> getMember() {
         ObservableList<Member> memberList = FXCollections.observableArrayList();
 
         File f = null;
@@ -176,7 +158,7 @@ public class GeneralMember extends User{
         String str;
         String[] tokens;
         try {
-            f = new File("gmInfo.txt");
+            f = new File("empGmInfo.txt");
             sc = new Scanner(f);
             if (f.exists()) {
 
@@ -199,7 +181,7 @@ public class GeneralMember extends User{
         
     }
 
-    public static void accessInfo(TableColumn<Member, String> memberidTableColumn, TableColumn<Member, String> membernameTableColumn, TableView<Member> memberTableColumn) {
+    public void accessInfo(TableColumn<Member, String> memberidTableColumn, TableColumn<Member, String> membernameTableColumn, TableView<Member> memberTableColumn) {
         //initialize table
 
         //set up the columns in the table
@@ -211,7 +193,9 @@ public class GeneralMember extends User{
     }
     
 
-    public static void sendMessage(String str, TableView<Member> memberTableView, TextArea messageTextArea) throws IOException {
+    public void sendMessage(TableView<Member> memberTableView, String message) throws IOException {
+        gmMessage = message;
+        String str="";
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         File f =  null;
         
@@ -235,7 +219,8 @@ public class GeneralMember extends User{
         
         //file created
         
-        str = memberTableView.getSelectionModel().getSelectedItem().toString()+","+messageTextArea.getText()+"\n";
+        
+        str = memberTableView.getSelectionModel().getSelectedItem().toString()+","+gmMessage+"\n";
         
        
         fw.write(str);

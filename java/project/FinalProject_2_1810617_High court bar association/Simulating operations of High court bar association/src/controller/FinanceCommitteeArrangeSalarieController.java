@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,7 +50,8 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
     @FXML
     private TextField nameTextField;
     
-    private String name, salary, bonus;
+    private String name; 
+    private float salary, bonus;
 
     /**
      * Initializes the controller class.
@@ -82,12 +82,12 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
     @FXML
     private void saveButtonOnAction(ActionEvent event) throws IOException {
         name = nameTextField.getText();
-        salary = salaryTextField.getText();
-        bonus = bonusTextField.getText();
+        salary = Float.parseFloat(salaryTextField.getText());
+        bonus = Float.parseFloat(bonusTextField.getText());
         
         FinanceCommittee f  = new FinanceCommittee();
         
-        f.addSalaryToTableAndDatabase(salaryTableView,name,salary,bonus);
+        f.arrangeSalary(salaryTableView,name,salary,bonus);
      
         
     }
@@ -112,7 +112,7 @@ public class FinanceCommitteeArrangeSalarieController implements Initializable {
                     str=sc.nextLine();
                     tokens = str.split(",");
                     
-                    salaryList.add(new Salary(tokens[0],tokens[1],tokens[2]));
+                    salaryList.add(new Salary(tokens[0],Float.parseFloat(tokens[1]),Float.parseFloat(tokens[2])));
                  
                 }
             }

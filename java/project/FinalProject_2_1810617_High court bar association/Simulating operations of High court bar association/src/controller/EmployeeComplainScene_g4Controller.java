@@ -61,7 +61,8 @@ public class EmployeeComplainScene_g4Controller implements Initializable {
     @FXML
     private void sendComplaintButtonOnAction(ActionEvent event) throws IOException 
     {
-        Employee.fileComplaint(memberTableView, complainTextArea);
+        Employee e = new Employee();
+        e.fileComplaint(memberTableView, complainTextArea);
         
     }
 

@@ -25,8 +25,6 @@ import javafx.stage.Stage;
  */
 public class HumanRightsCommitteeSetVotingController implements Initializable {
 
-    @FXML
-    private TextField opinionTextField;
 
     /**
      * Initializes the controller class.
