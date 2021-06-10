@@ -1,0 +1,42 @@
+Lecture 31
+---------------
+
+Presentation Slides: 
+Lecture 9:
+https://www.icloud.com/keynote/0eCu5xAMbNPLW0ou1kX5sklKQ#Lecture_9
+Lecture 10:
+https://www.icloud.com/keynote/0rJrlX4-r8U7setO19T1Vc-kA#Lecture_10
+
+Google Jamboard:
+https://jamboard.google.com/d/1FSnmk5ZDlyHM8XYtj7mIZ-YD3PqyVWaPNd-a7gKDjew/edit?usp=sharing
+
+Experimental Live coding (Visual Studio 2019) ... it might crash:
+https://prod.liveshare.vsengsaas.visualstudio.com/join?365AC7A7D88ABC7741BA3CB32777B9DCA96B
+
+Youtube Streaming:
+Lecture 31:
+https://youtu.be/1GRXg97-PqM
+
+Lecture 33 , the last one
+--------------------------------------
+
+Presentation Slides: 
+Lecture 9:
+https://www.icloud.com/keynote/0eCu5xAMbNPLW0ou1kX5sklKQ#Lecture_9
+Lecture 10:
+https://www.icloud.com/keynote/0rJrlX4-r8U7setO19T1Vc-kA#Lecture_10
+
+Google Jamboard:
+Graph 1
+https://jamboard.google.com/d/1FSnmk5ZDlyHM8XYtj7mIZ-YD3PqyVWaPNd-a7gKDjew/edit?usp=sharing
+
+Graph 2
+https://jamboard.google.com/d/1kKdeJWAqwI_ZilrwSNsTT9VyHyk-k9dcAm7s2wfAcNc/edit?usp=sharing
+
+
+Experimental Live coding (Visual Studio 2019) ... it might crash:
+https://prod.liveshare.vsengsaas.visualstudio.com/join?719955B056709E30125BB49952AF05B3E768
+
+Youtube Streaming:
+Lecture 33:
+https://youtu.be/6yey1xeikZk

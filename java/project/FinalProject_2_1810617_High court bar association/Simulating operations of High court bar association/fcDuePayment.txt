@@ -1,4 +1,0 @@
-Hasib,Paid
-Asik,Paid
-Sakid,Due
-Rohid,Paid

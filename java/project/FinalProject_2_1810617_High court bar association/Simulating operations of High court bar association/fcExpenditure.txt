@@ -1,6 +1,0 @@
-Food,2500,Jan,2021
-Meetings,2200,Feb,2020
-StationaryItems,240,Dec,2019
-Paper,1142,March,2018
-Bills,2434,May,2017
-Pen,231,April,2022
