@@ -1,0 +1,4 @@
+28 Feb,Food,2500
+13 Jan,Stationary,1654
+13 Mar,Meeting,1754
+19 Mar,Books,42343
