@@ -1,0 +1,80 @@
+body{
+    background-image: url(img/6183116.jpg);
+    background-size: 100%;
+}
+#form{
+    display: flex;
+    align-items: right;
+    justify-content:center;
+}
+#formcontainer{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    margin-left: 0px;
+    flex-basis: 40%;
+}
+#imgcontainer{
+    flex-basis: 30%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+#contactimage{
+    max-width: 100%;
+}
+.form-label{
+    color: white;
+    font-size: 17px;
+}
+.btn-primary{
+    background-color:darkblue;
+}
+.btn-outline-success{
+    background-color:darkblue;
+    color: white;
+}
+.form-control{
+    opacity: 0.8;
+}
+#navbar1{
+    background-image: url(img/4882066.jpg);
+}
+#navbar2{
+    background-image: url(img/abstract-1635497999638-9593.jpg);
+    background-size: 100%;
+}
+.me-2{
+    opacity: 0.8;
+}
+.dropdown-menu{
+    background-color:rgb(25, 87, 19);
+    opacity: 0.9;
+}
+.dropdown-item{
+    color:rgb(248, 248, 248);
+    font-size: 17px;
+}
+.dropdown-divider{
+    color:white;
+    border-width: 3px;
+}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(4, 52, 141, 0.9);
+    font-size: 17px;
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link {
+    color:rgb(206, 134, 40);
+    font-size: 17px;
+    font-weight: bold;
+}
+#welcometext{
+    color:aliceblue;
+    padding-left: 550px;
+    font-size: 30px;
+}
+h1{
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
