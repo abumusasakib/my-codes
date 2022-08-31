@@ -1,5 +1,5 @@
 <?php
-$url = "http://api.openweathermap.org/data/2.5/forecast?q=Dhaka&appid=82c4cb4f4aa07201dde0bf8e46389c1a&units=metric";
+$url = "http://api.openweathermap.org/data/2.5/forecast?q=Dhaka&appid=*your_openweathermap_api_key*&units=metric";
 $contents = file_get_contents($url);
 $weather = json_decode($contents);
 
